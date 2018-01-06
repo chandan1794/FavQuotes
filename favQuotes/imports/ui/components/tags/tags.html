@@ -1,5 +1,14 @@
 <template name="tags">
     {{#each data}}
-        <span>{{this}}</span>
+    <span class="tags">{{this}}</span>
     {{/each}}
+    <style>
+        .tags {
+            font-size: 0.8rem;
+            line-height:2.5rem;
+            padding: 5pt;
+            border: 1px solid white;
+            margin-right: 5pt
+        }
+    </style>
 </template>
