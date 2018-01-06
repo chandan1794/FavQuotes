@@ -5,30 +5,33 @@ import { Quotes } from '../../api/quotes/quotes.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
-  if (Quotes.find().count() === 0) {
+
     const data = [
       {
         title: 'Do the Tutorial',
-        url: 'https://www.meteor.com/try',
+        quote: 'https://www.meteor.com/try',
+        tags: ['hello', 'hi'],
         createdAt: new Date(),
       },
       {
         title: 'Follow the Guide',
-        url: 'http://guide.meteor.com',
+        quote: 'https://www.meteor.com/try',
+        tags: ['hello', 'hi'],
         createdAt: new Date(),
       },
       {
         title: 'Read the Docs',
-        url: 'https://docs.meteor.com',
+        quote: 'https://www.meteor.com/try',
+        tags: ['hello', 'hi'],
         createdAt: new Date(),
       },
       {
         title: 'Discussions',
-        url: 'https://forums.meteor.com',
+        quote: 'https://www.meteor.com/try',
+        tags: ['hello', 'hi'],
         createdAt: new Date(),
       },
     ];
 
     data.forEach(quote => Quotes.insert(quote));
-  }
 });

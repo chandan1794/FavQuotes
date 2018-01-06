@@ -1,4 +1,7 @@
 <template name="App_home">
-  {{> hello}}
-  {{> info}}
+  {{#each allQuotes}}
+    {{>title data=this.title}}
+    {{>quotebox data=this.quote}}
+    {{>tags data=this.tags}}
+  {{/each}}
 </template>
