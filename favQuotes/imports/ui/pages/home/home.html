@@ -1,59 +1,59 @@
 <template name="App_home">
-  <div class="container __header__">
-    <span>
-      "Quoted"
-    </span>
-  </div>
-  <div class="container __body__">
-    {{#each allQuotes}}
-    <div class="row">
-      <div class="col s12 titlebox">
-        {{>title data=this.title}}
-      </div>
-      <div class="col s12 quotebox">
-        <blockquote>
-          {{>quotebox data=this.quote}}
-        </blockquote>
-      </div>
-      <div class="col s12 tagbox">
-        {{>tags data=this.tags}}
-      </div>
-    </div>
-    {{/each}}
-  </div>
-  <div class="con">
-    {{>fab}}
-  </div>
-  <style>
-    body {
-      background: black;
-    }
+	<div class="container __header__">
+		<span>
+			"Quoted"
+		</span>
+	</div>
+	<div class="container __body__">
+		{{#each allQuotes}}
+		<div class="row">
+			<div class="col s12 titlebox">
+				{{>title data=this.title}}
+			</div>
+			<div class="col s12 quotebox">
+				<blockquote>
+					{{>quotebox data=this.quote}}
+				</blockquote>
+			</div>
+			<div class="col s12 tagbox">
+				{{>tags data=this.tags}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	<div class="con">
+		{{>fab}}
+	</div>
+	<style>
+		body {
+			background: black;
+		}
 
-    .container {
-      background: black;
-      color: white;
-      padding: 48px;
-      width: 100%;
-    }
+		.container {
+			background: black;
+			color: white;
+			padding: 48px;
+			width: 100%;
+		}
 
-    .__header__ {
-      padding-bottom: 0;
-      font-size: 50pt;
-      font-weight: lighter;
-    }
+		.__header__ {
+			padding-bottom: 0;
+			font-size: 50pt;
+			font-weight: lighter;
+		}
 
-    .__body__ {
-      padding-top: 0px;
-    }
+		.__body__ {
+			padding-top: 0px;
+		}
 
-    .row {
-      min-height: 150pt;
-      padding-top: 10pt;
-      padding-bottom: 20pt;
-    }
+		.row {
+			min-height: 150pt;
+			padding-top: 10pt;
+			padding-bottom: 20pt;
+		}
 
-    .titlebox {
-      font-weight: 500;
-    }
-  </style>
+		.titlebox {
+			font-weight: 500;
+		}
+	</style>
 </template>
