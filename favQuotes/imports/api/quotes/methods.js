@@ -5,14 +5,16 @@ import { check } from 'meteor/check';
 import { Quotes } from './quotes.js';
 
 Meteor.methods({
-  'quotes.insert'(title, url) {
-    check(url, String);
-    check(title, String);
+	'quotes.insert'(source, quote, tags) {
+		check(source, String);
+		check(quote, String);
+		check(tags, Array);
 
-    return Quotes.insert({
-      url,
-      title,
-      createdAt: new Date(),
-    });
-  },
+		return Quotes.insert({
+			source,
+			quote,
+			tags,
+			createdAt: new Date(),
+		});
+	},
 });
