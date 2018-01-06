@@ -15,6 +15,12 @@ Template.App_home.onCreated(function(){
 
 Template.App_home.helpers({
     allQuotes: function(){
-        return Quotes.find({}).fetch();
+        return Quotes.find({
+            },
+            {
+                sort:{
+                    createdAt:-1
+                }
+            }).fetch();
     }
 })
