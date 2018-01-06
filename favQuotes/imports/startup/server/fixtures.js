@@ -5,7 +5,7 @@ import { Quotes } from '../../api/quotes/quotes.js';
 
 Meteor.startup(() => {
   // if the Links collection is empty
-
+    Quotes.remove({});
     const data = [
       {
         title: 'Do the Tutorial',

@@ -1,7 +1,20 @@
 <template name="App_home">
-  {{#each allQuotes}}
-    {{>title data=this.title}}
-    {{>quotebox data=this.quote}}
-    {{>tags data=this.tags}}
-  {{/each}}
+  <div class="container">
+    {{#each allQuotes}}
+      {{>title data=this.title}}
+      {{>quotebox data=this.quote}}
+      {{>tags data=this.tags}}
+    {{/each}}
+  </div>
+  <style>
+    body{
+      background:black;
+    }
+    .container{
+      background:black;
+      color:white;
+      padding:48px;
+      width:100%;
+    }
+  </style>
 </template>
