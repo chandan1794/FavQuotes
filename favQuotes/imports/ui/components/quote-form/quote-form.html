@@ -1,11 +1,22 @@
 <template name="quoteform">
     <div id="modal1" class="modal modal-fixed-footer">
         <div class="modal-content">
-            <h4>Modal Header</h4>
-            <p>A bunch of text</p>
+            <h4>Quote It</h4>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="ip_title" type="text" class="validate">
+                        <label for="ip_title" data-error="Source Cannot be empty" data-success="Correct">Source</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="ta_quote" class="materialize-textarea"></textarea>
+                        <label for="ta_quote">Quote</label>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Save</a>
         </div>
     </div>
 </template>
