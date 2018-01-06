@@ -1,8 +1,15 @@
 <template name="App_home">
 	<div class="container __header__">
-		<span>
-			"Quoted"
-		</span>
+		<div class="row">
+			<div class="col s12 appname">
+				"Quoted"
+			</div>
+			<div class="col s12">
+				<div class="input-field">
+					<input id="icon_prefix" type="text" class="validate" placeholder="Search">			
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="container __body__">
 		{{#each allQuotes}}
@@ -38,8 +45,17 @@
 
 		.__header__ {
 			padding-bottom: 0;
+		}
+
+		.__header__ .row{
+			margin-bottom:0;
+		}
+		.appname{
 			font-size: 50pt;
 			font-weight: lighter;
+		}
+		.searchbox{
+			margin-top:0;
 		}
 
 		.__body__ {
