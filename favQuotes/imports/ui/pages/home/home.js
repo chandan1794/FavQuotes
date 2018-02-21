@@ -31,3 +31,14 @@ Template.App_home.helpers({
         return Template.instance().x.get();
     }
 })
+
+Template.App_home.events({
+    "click .delete": (event, context) => {
+        var id = $(event.currentTarget).data("id");
+        var db = window.openDatabase("db_quotes", "1.0.0", "Quotes Database", 2 * 1024 * 1024);
+
+        db.transaction(function (tx) {
+            tx.executeSql('DELETE FROM tbl_quotes WHERE id=?', [id]);
+        })
+    }
+})

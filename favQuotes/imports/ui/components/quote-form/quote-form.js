@@ -14,7 +14,7 @@ Template.quoteform.events({
 
         var db = window.openDatabase("db_quotes", "1.0.0", "Quotes Database", 2 * 1024 * 1024);
         db.transaction(function (tx) {
-            tx.executeSql('CREATE TABLE IF NOT EXISTS tbl_quotes (title, quote, tags)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS tbl_quotes (id INTEGER PRIMARY KEY AUTOINCREMENT, title, quote, tags)');
         });
         db.transaction(function (tx) {
             tx.executeSql('INSERT INTO tbl_quotes (title, quote, tags) VALUES ("' + source + '", "' + quote + '","' +tags + '")');
