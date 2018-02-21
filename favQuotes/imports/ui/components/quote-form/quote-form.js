@@ -6,22 +6,19 @@ Template.quoteform.onRendered(function () {
 })
 
 Template.quoteform.events({
-    "click #save-quote": (event)=>{
+    "click #save-quote": (event) => {
         event.preventDefault();
         var source = $("#ip_title").val();
         var quote = $("#ta_quote").val();
         var tags = $("#ip_tags").val();
-        tags = tags.split(",");
-        for(i in tags){
-            tags[i] = tags[i].trim();
-        }
-        Meteor.call("quotes.insert", source, quote, tags, function(error, success){
-            if(error){
-                console.error(error);
-            }else{
-                console.log(success);
-                $('.modal').modal("close");
-            }
+
+        var db = window.openDatabase("db_quotes", "1.0.0", "Quotes Database", 2 * 1024 * 1024);
+        db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS tbl_quotes (title, quote, tags)');
         });
+        db.transaction(function (tx) {
+            tx.executeSql('INSERT INTO tbl_quotes (title, quote, tags) VALUES ("' + source + '", "' + quote + '","' +tags + '")');
+        });
+        $(".modal").modal("close");
     }
 })
