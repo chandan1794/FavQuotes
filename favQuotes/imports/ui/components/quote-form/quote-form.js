@@ -1,4 +1,5 @@
 import './quote-form.html';
+import { Session } from 'meteor/session';
 
 Template.quoteform.onRendered(function () {
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
@@ -16,8 +17,11 @@ Template.quoteform.events({
         db.transaction(function (tx) {
             tx.executeSql('CREATE TABLE IF NOT EXISTS tbl_quotes (id INTEGER PRIMARY KEY AUTOINCREMENT, title, quote, tags)');
         });
+
+        Session.set("databaseUpdated", false);
         db.transaction(function (tx) {
-            tx.executeSql('INSERT INTO tbl_quotes (title, quote, tags) VALUES ("' + source + '", "' + quote + '","' +tags + '")');
+            tx.executeSql('INSERT INTO tbl_quotes (title, quote, tags) VALUES ("' + source + '", "' + quote + '","' + tags + '")');
+            Session.set("databaseUpdated", true);
         });
         $(".modal").modal("close");
     }
